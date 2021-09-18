@@ -7,33 +7,37 @@ const Spacetagram = () => {
     const [loaded, setLoaded] = React.useState(false);
     const [imageInfo, setImageInfo] = React.useState();
     React.useEffect(() => {
-        fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=755&camera=MAST&api_key=awLAUWzOXPZcohafQqjXGwdALXDolKYmkZBNPAu6')
+        fetch('https://api.nasa.gov/planetary/apod?start_date=2020-06-09&end_date=2020-09-06&api_key=awLAUWzOXPZcohafQqjXGwdALXDolKYmkZBNPAu6        ')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                setImageInfo(data.photos);
+                setImageInfo(data);
                 setLoaded(true);
             })
     }, [])
     console.log(imageInfo);
     return (loaded ?
         <Wrapper>
-            <ContentWrapper>
+            <TitleWrapper>
                 <Title>Spacetagram</Title>
                 <Subtitle>Brought to you by NASA's space API</Subtitle>
-                {imageInfo.slice(1, 25).map((image) => {
-                    return (
-                        <ImageWrapper>
-                            <Image src={image.img_src} />
-                            <InfoWrapper>
-                                <TextWrapper>
-                                    <ImageTitle>{image.rover.name} Rover - {image.camera.full_name}</ImageTitle>
-                                    <ImageDate>{image.earth_date}</ImageDate>
-                                </TextWrapper>
-                                <LikeButton />
-                            </InfoWrapper>
-                        </ImageWrapper>
-                    )
+            </TitleWrapper>
+            <ContentWrapper>
+                {imageInfo.map((image) => {
+                    if (image.media_type === 'image') {
+                        return (
+                            <ImageWrapper>
+                                <Image src={image.url} />
+                                <InfoWrapper>
+                                    <TextWrapper>
+                                        <ImageTitle>{image.title}</ImageTitle>
+                                        <ImageDate>{image.date}</ImageDate>
+                                    </TextWrapper>
+                                    <LikeButton />
+                                </InfoWrapper>
+                            </ImageWrapper>
+                        )
+                    }
                 })}
             </ContentWrapper>
         </Wrapper> :
@@ -42,6 +46,18 @@ const Spacetagram = () => {
 }
 
 export default Spacetagram;
+
+const TitleWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #AAA8B5;
+    width: 700px;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+`;
 
 const TextWrapper = styled.div`
     display: flex;
@@ -59,7 +75,7 @@ const ContentWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     width: 700px;
-    background-color: beige;
+    background-color: #AAA8B5;
     border-radius: 20px;
 `;
 
@@ -69,7 +85,9 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    background-color: #0C2D48;
+    margin-top: -20px;
+    margin-left: -20px;
 `;
 
 const Title = styled.div`

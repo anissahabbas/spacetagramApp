@@ -7,7 +7,7 @@ const LikeButton = () => {
     return (
         <Button onClick={() => setIsLiked(!isLiked)}>
             {isLiked ?
-                <FaHeart size='25px' /> :
+                <FaHeart size='25px' color='#663266'/> :
                 <FaRegHeart size='25px'/>}
         </Button>
     )
