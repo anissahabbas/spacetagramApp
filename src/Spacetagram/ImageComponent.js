@@ -49,7 +49,8 @@ const TextWrapper = styled.div`
     flex-direction: column;
 `;
 
-const ImageTitle = styled.div`
+const ImageTitle = styled.h3`
+    margin: 0;
     width:500px;
     text-align: left;
     font-weight: bold;
@@ -57,13 +58,15 @@ const ImageTitle = styled.div`
     font-size: 20px;
 `;
 
-const ImageDate = styled.div`
+const ImageDate = styled.p`
     width: 500px;
     text-align: left;
+    margin: 0;
     margin-top: 5px;
 `;
 
-const Description = styled.div`
+const Description = styled.p`
     padding: 20px;
+    margin: 0;
 `;
 

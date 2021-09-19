@@ -74,7 +74,7 @@ const RocketWrapper = styled.div`
     animation: ${shake} 100ms infinite;
 `;
 
-const Text = styled.div`
+const Text = styled.p`
     font-family: 'Anton', sans-serif;
     font-weight: bold;
     position: absolute;

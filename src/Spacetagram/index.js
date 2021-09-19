@@ -56,14 +56,16 @@ const TitleWrapper = styled.div`
     margin-top: 20px;
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
     font-family: 'Anton', sans-serif;
     font-size: 30px;
+    margin: 0;
 `;
 
-const Subtitle = styled.div`
+const Subtitle = styled.h2`
     font-family: 'Inconsolata', monospace;
     font-size: 20px;
+    margin: 0;
 `;
 
 const ContentWrapper = styled.div`
