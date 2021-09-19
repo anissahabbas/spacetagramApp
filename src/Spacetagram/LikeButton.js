@@ -15,7 +15,6 @@ const LikeButton = () => {
 
 export default LikeButton;
 
-
 const Button = styled.button`
     border: none;
     background-color: white;
