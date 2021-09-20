@@ -5,7 +5,9 @@ import LoadingState from './LoadingState';
 
 const Spacetagram = () => {
     const [loaded, setLoaded] = React.useState(false);
+
     const [imageInfo, setImageInfo] = React.useState();
+
     React.useEffect(() => {
         fetch('https://api.nasa.gov/planetary/apod?start_date=2020-06-09&end_date=2020-07-06&api_key=awLAUWzOXPZcohafQqjXGwdALXDolKYmkZBNPAu6')
             .then(res => res.json())
@@ -14,6 +16,7 @@ const Spacetagram = () => {
                 setLoaded(true);
             })
     }, [])
+
     return (loaded ?
         <Wrapper>
             <TitleWrapper>
