@@ -15,7 +15,7 @@ const LoadingState = () => {
             </LineWrapper>
             <CenterWrapper>
                 <RocketWrapper>
-                    <IoRocket size='100px'/>
+                    <IoRocket size='100px' />
                 </RocketWrapper>
                 <Text>Taking Off...</Text>
             </CenterWrapper>

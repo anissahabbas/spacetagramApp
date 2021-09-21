@@ -43,8 +43,7 @@ const Wrapper = styled.div`
     align-items: center;
     flex-direction: column;
     background-color: #0C2D48;
-    margin-top: -20px;
-    margin-left: -20px;
+    margin: -20px;
 `;
 
 const TitleWrapper = styled.div`
